@@ -1,0 +1,2 @@
+include ':Lab1-UI'
+rootProject.name = "Labs2020-1-Gr04"
