@@ -27,7 +27,7 @@
         android:drawableStart="@android:drawable/ic_menu_my_calendar"
         android:ems="10"
         android:hint="Nombres"
-        android:inputType="textPersonName"
+        android:inputType="textNoSuggestions|textCapWords"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
@@ -43,7 +43,7 @@
         android:drawableStart="@android:drawable/ic_menu_my_calendar"
         android:ems="10"
         android:hint="Apellidos"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords|textNoSuggestions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,12 +116,12 @@
         app:layout_constraintTop_toBottomOf="@+id/dateTv" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/toContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:layout_marginTop="56dp"
         android:text="SIGUIENTE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idSpinner" />
