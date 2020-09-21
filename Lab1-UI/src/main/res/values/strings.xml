@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Labs2020-1-Gr04</string>
+    <string name="textView3">Bienvenido a AgroOnline la plataforma de agro mas grande de Colombia</string>
+    <string name="btnIniciar">INICIAR</string>
+    <string name="textView4">Escolaridad</string>
+    <string name="TextPersonName">Nombres</string>
+    <string name="TextPersonName2">Apellidos</string>
+    <string name="textView">Sexo</string>
+    <string name="textView2">Información Personal</string>
+    <string name="cambiarbtn">Cambiar</string>
+    <string name="button2">SIGUIENTE</string>
+    <string name="radioButton5">Masculino</string>
+    <string name="radioButton6">Femenino</string>
+
+
+
 </resources>

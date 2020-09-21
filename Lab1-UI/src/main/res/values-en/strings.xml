@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Labs2020-1-Gr04</string>
+    <string name="textView3">Welcome to AgroOnline, the largest agricultural platform in Colombia</string>
+    <string name="btnIniciar">START</string>
+    <string name="textView4">Scholarship</string>
+    <string name="TextPersonName">Names</string>
+    <string name="TextPersonName2">Last Names</string>
+    <string name="textView">Sex</string>
+    <string name="textView2">Personal information</string>
+    <string name="cambiarbtn">Change</string>
+    <string name="button2">NEXT</string>
+    <string name="radioButton5">Male</string>
+    <string name="radioButton6">Female</string>
+
+
+</resources>
