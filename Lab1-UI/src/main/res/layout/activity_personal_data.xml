@@ -15,8 +15,13 @@
         android:layout_marginTop="20dp"
         android:drawableStart="@android:drawable/ic_menu_my_calendar"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="@string/TextPersonName"
         android:inputType="textPersonName"
+=======
+        android:hint="Nombres"
+        android:inputType="textNoSuggestions|textCapWords"
+>>>>>>> 8ac319d5fcb54f7b79deb23b78699c04a4610a9e
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +35,14 @@
         android:layout_margin="20dp"
         android:drawableStart="@android:drawable/ic_menu_my_calendar"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="@string/TextPersonName2"
         android:inputType="textPersonName"
+=======
+        android:hint="Apellidos"
+        android:inputType="textCapWords|textNoSuggestions"
+        app:layout_constraintBottom_toBottomOf="parent"
+>>>>>>> 8ac319d5fcb54f7b79deb23b78699c04a4610a9e
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextPersonName" />
@@ -102,13 +113,20 @@
         app:layout_constraintTop_toBottomOf="@+id/dateTv" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/toContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginTop="8dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
         android:text="@string/button2"
+=======
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="56dp"
+        android:text="SIGUIENTE"
+>>>>>>> 8ac319d5fcb54f7b79deb23b78699c04a4610a9e
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idSpinner" />
 

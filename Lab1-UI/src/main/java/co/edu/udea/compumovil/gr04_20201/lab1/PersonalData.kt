@@ -1,6 +1,7 @@
 package co.edu.udea.compumovil.gr04_20201.lab1
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -48,7 +49,10 @@ class PersonalData : AppCompatActivity() {
             dpd.show()
         }
 
-
+        toContact.setOnClickListener {
+            val intent: Intent = Intent(this, ContactData::class.java)
+            startActivity(intent)
+        }
 
     }
 }
