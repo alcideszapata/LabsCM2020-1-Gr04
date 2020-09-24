@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Lab1-UI.iml" filepath="$PROJECT_DIR$/.idea/modules/Lab1-UI.iml" group="Labs2020-1-Gr04/Lab1-UI" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-212903916/Labs2020-1-Gr04.iml" filepath="$PROJECT_DIR$/.idea/modules/-212903916/Labs2020-1-Gr04.iml" group="Labs2020-1-Gr04" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Labs2020-1-Gr04-Lab1-UI.iml" filepath="$PROJECT_DIR$/.idea/modules/Labs2020-1-Gr04-Lab1-UI.iml" group="Labs2020-1-Gr04/Lab1-UI" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1214549233/LabsCM2020-1-Gr04-Labs2020-1-Gr04.iml" filepath="$PROJECT_DIR$/.idea/modules/-1214549233/LabsCM2020-1-Gr04-Labs2020-1-Gr04.iml" group="Labs2020-1-Gr04" />
     </modules>
   </component>
 </project>
