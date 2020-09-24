@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dra"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginEnd="16dp"
-    android:layout_marginStart="16dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="30dp"
+    android:layout_marginStart="30dp"
     android:background="@android:color/holo_blue_dark"
     tools:context=".ContactData">
 
@@ -14,13 +14,13 @@
         android:id="@+id/autoCompleteCiudad"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:drawableLeft="@drawable/city"
         android:drawableStart="@drawable/city"
         android:hint="@string/autoCompleteCiudad"
-        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPais" />
 
@@ -28,14 +28,16 @@
         android:id="@+id/autoCompleteDir"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:drawableLeft="@android:drawable/ic_menu_directions"
         android:hint="@string/autoCompleteDir"
-        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteCiudad" />
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteCiudad"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnSigueContacto"
@@ -44,24 +46,25 @@
         android:text="@string/btnSigueContacto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteDir"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintTop_toBottomOf="@+id/Titulo2"
+        app:layout_constraintVertical_bias="0.698" />
 
     <EditText
         android:id="@+id/txtTelefono"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
         android:drawableLeft="@android:drawable/ic_menu_call"
         android:drawableStart="@android:drawable/ic_menu_call"
         android:ems="10"
         android:hint="@string/txtTelefono"
         android:inputType="phone"
-        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
 
@@ -69,15 +72,15 @@
         android:id="@+id/txtMail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:drawableLeft="@android:drawable/sym_action_email"
         android:drawableStart="@android:drawable/sym_action_email"
         android:ems="10"
         android:hint="@string/txtMail"
         android:inputType="textNoSuggestions|textEmailAddress"
-        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
 
@@ -85,69 +88,29 @@
         android:id="@+id/txtPais"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:drawableLeft="@android:drawable/ic_menu_mapmode"
         android:drawableStart="@android:drawable/ic_menu_mapmode"
         android:ems="10"
         android:hint="@string/txtPais"
         android:inputType="textPersonName"
-        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMail" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="220dp"
-        android:layout_height="212dp"
+        android:id="@+id/imageView"
+        android:layout_width="97dp"
+        android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.876"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteDir"
-        app:layout_constraintVertical_bias="0.26"
-        app:srcCompat="@android:drawable/stat_sys_headset" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:text="*"
-        android:textColor="#E32012"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txtMail" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="476dp"
-        android:text="*"
-        android:textColor="#E32012"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txtPais" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="#E32012"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txtTelefono"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.761" />
+        app:layout_constraintVertical_bias="0.387"
+        app:srcCompat="@android:drawable/stat_sys_headset" />
 
     <TextView
         android:id="@+id/Titulo2"
@@ -164,4 +127,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:textColor="#E32012"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/txtTelefono"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="*"
+        android:textColor="#E32012"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/txtMail" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:textColor="#E32012"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSigueContacto"
+        app:layout_constraintStart_toEndOf="@+id/txtPais" />
 </androidx.constraintlayout.widget.ConstraintLayout>

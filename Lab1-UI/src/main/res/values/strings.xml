@@ -12,6 +12,15 @@
     <string name="radioButton5">Masculino</string>
     <string name="radioButton6">Femenino</string>
 
+    <string name="autoCompleteCiudad">Ciudad</string>
+    <string name="autoCompleteDir">Dirección</string>
+    <string name="btnSigueContacto">Finalizar</string>
+    <string name="txtTelefono">Teléfono</string>
+    <string name="txtMail">Correo</string>
+    <string name="txtPais">País</string>
+    <string name="Titulo2">Información de Contacto</string>
+
+
 
 
 </resources>
