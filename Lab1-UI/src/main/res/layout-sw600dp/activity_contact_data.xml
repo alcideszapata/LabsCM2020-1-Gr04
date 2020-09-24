@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/dra"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_marginEnd="16dp"
+android:layout_marginStart="16dp"
+tools:context=".ContactData">
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteCiudad"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/city"
+        android:hint="País"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPais"
+        android:drawableLeft="@drawable/city" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteDir"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/city"
+        android:hint="Diracción"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteCiudad" />
+
+    <Button
+        android:id="@+id/btnSigueContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoCompleteDir"
+        app:layout_constraintVertical_bias="0.319" />
+
+    <EditText
+        android:id="@+id/txtTelefono"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableLeft="@android:drawable/ic_menu_call"
+        android:drawableStart="@android:drawable/ic_menu_call"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Teléfono"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
+
+<EditText
+    android:id="@+id/txtMail"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:drawableStart="@android:drawable/sym_action_email"
+    android:ems="10"
+    android:inputType="textNoSuggestions|textEmailAddress"
+    android:hint="E-mail"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.129"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtTelefono"
+    android:drawableLeft="@android:drawable/sym_action_email" />
+
+<EditText
+    android:id="@+id/txtPais"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:drawableStart="@android:drawable/ic_menu_mapmode"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:hint="País"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.129"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtMail"
+    android:drawableLeft="@android:drawable/ic_menu_mapmode" />
+
+<TextView
+    android:id="@+id/Titulo2"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:text="Informacion de Contacto"
+    android:textAlignment="center"
+    android:textColor="#ED1313"
+    android:textSize="30sp"
+    android:textStyle="italic"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:gravity="center_horizontal" />
+</androidx.constraintlayout.widget.ConstraintLayout>
