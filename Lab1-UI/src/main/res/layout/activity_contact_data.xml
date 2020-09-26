@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@drawable/fondocontacd"
     tools:context=".ContactData">
 
     <AutoCompleteTextView
@@ -96,18 +96,6 @@
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMail" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="220dp"
-        android:layout_height="212dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoCompleteDir"
-        app:layout_constraintVertical_bias="0.26"
-        app:srcCompat="@android:drawable/stat_sys_headset" />
 
     <TextView
         android:id="@+id/textView5"
