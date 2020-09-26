@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_contact_data.*
 import kotlinx.android.synthetic.main.activity_personal_data.*
 import java.util.*
 
 class PersonalData : AppCompatActivity() {
-    lateinit var escolaridad : Spinner
-    lateinit var mostrar : TextView
+    lateinit var escolaridad: Spinner
+    lateinit var mostrar: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +23,12 @@ class PersonalData : AppCompatActivity() {
         mostrar = findViewById(R.id.textView4) as TextView
 
         val options = arrayOf("Primaria", "Secundaria", "Universitario", "Otros")
-        escolaridad.adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,options)
+        escolaridad.adapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, options)
 
-        escolaridad.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long
+        escolaridad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
                 mostrar.text = options.get(position)
             }
@@ -43,16 +46,31 @@ class PersonalData : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         cambiarbtn.setOnClickListener {
-            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view: DatePicker?, mYear: Int, mMonth: Int, mDay: Int ->
-                dateTv.setText(""+ mDay +"/"+ mMonth +"/"+ mYear)
-            }, year, month, day)
+            val dpd = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view: DatePicker?, mYear: Int, mMonth: Int, mDay: Int ->
+                    fecha.setText("" + mDay + "/" + mMonth + "/" + mYear)
+                },
+                year,
+                month,
+                day
+            )
             dpd.show()
         }
 
         toContact.setOnClickListener {
-            val intent: Intent = Intent(this, ContactData::class.java)
-            startActivity(intent)
-        }
+            if (txtnombre.text.isEmpty() || txtApellido.text.isEmpty() || fecha.text.isEmpty()) {
+                Toast.makeText(
+                    this,
+                    "Los campos con asterisco con obligatorios",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
 
+                val intent: Intent = Intent(this, ContactData::class.java)
+                startActivity(intent)
+            }
+
+        }
     }
 }
