@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Labs2020-1-Gr04</string>
-    <string name="textView3">Welcome to AgroOnline, the largest agricultural platform in Colombia</string>
+    <string name="textView3">Labs # 1 by: Leonel, Carlos and Alcides</string>
     <string name="btnIniciar">START</string>
     <string name="textView4">Scholarship</string>
-    <string name="TextPersonName">Names</string>
-    <string name="TextPersonName2">Last Names</string>
+    <string name="TextPersonName">Names *</string>
+    <string name="TextPersonName2">Last Names *</string>
     <string name="textView">Sex</string>
     <string name="textView2">Personal information</string>
     <string name="cambiarbtn">Change</string>
@@ -15,11 +15,12 @@
 
 
     <string name="autoCompleteCiudad">City</string>
-    <string name="autoCompleteDir">Direction</string>
+    <string name="autoCompleteDir">Address</string>
     <string name="btnSigueContacto">Finish</string>
-    <string name="txtTelefono">Phone</string>
-    <string name="txtMail">Email</string>
-    <string name="txtPais">Country</string>
+    <string name="txtTelefono">Phone *</string>
+    <string name="txtMail">Email *</string>
+    <string name="txtPais">Country *</string>
     <string name="Titulo2">Contact Information</string>
+    <string name="txtinic">Enter the name of your company</string>
 
 </resources>
