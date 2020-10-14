@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/lugaresFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/lugaresFragment"
@@ -19,4 +19,13 @@
         android:name="co.edu.udea.compumovil.gr04_20201.lab2.ui.DetallesLugarFragment"
         android:label="DETALLE LUGARES"
         tools:layout="@layout/fragment_detalles_lugar" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="co.edu.udea.compumovil.gr04_20201.lab2.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_lugaresFragment"
+            app:destination="@id/lugaresFragment" />
+    </fragment>
 </navigation>
