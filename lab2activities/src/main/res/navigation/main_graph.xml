@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_lugaresFragment_to_detallesLugarFragment"
             app:destination="@id/detallesLugarFragment" />
+        <action
+            android:id="@+id/action_lugaresFragment_to_registerSitesFragment"
+            app:destination="@id/registerSitesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detallesLugarFragment"
@@ -28,4 +31,8 @@
             android:id="@+id/action_loginFragment_to_lugaresFragment"
             app:destination="@id/lugaresFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registerSitesFragment"
+        android:name="co.edu.udea.compumovil.gr04_20201.lab2.vo.RegisterSitesFragment"
+        android:label="RegisterSitesFragment" />
 </navigation>
