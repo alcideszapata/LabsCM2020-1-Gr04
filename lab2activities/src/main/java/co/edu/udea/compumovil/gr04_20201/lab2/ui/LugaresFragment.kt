@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.edu.udea.compumovil.gr04_20201.lab2.R
+import co.edu.udea.compumovil.gr04_20201.lab2.base.AppDatabase
 import co.edu.udea.compumovil.gr04_20201.lab2.data.model.DataSource
 import co.edu.udea.compumovil.gr04_20201.lab2.data.model.Sitios
 import co.edu.udea.compumovil.gr04_20201.lab2.domain.RepoImpl
@@ -22,9 +23,11 @@ import co.edu.udea.compumovil.gr04_20201.lab2.vo.Resource
 import kotlinx.android.synthetic.main.fragment_lugares.*
 
 
-class LugaresFragment : Fragment(), MainAdapter.OnSitioClickListener {
+class LugaresFragment : Fragment(),MainAdapter.OnSitioClickListener {
 
-    private val viewModel by viewModels<MainViewModel> { VMFactory(RepoImpl(DataSource())) }
+
+
+    /*private val viewModel by viewModels<MainViewModel> { ((AppDatabase.getDatabase(this.context))) }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,25 +45,21 @@ class LugaresFragment : Fragment(), MainAdapter.OnSitioClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        viewModel.fetchSitiosList.observe(viewLifecycleOwner, Observer { result ->
-            when (result) {
-                is Resource.Loading -> {
-                    progressBar.visibility = View.VISIBLE
 
-                }
-                is Resource.Success -> {
-                    progressBar.visibility = View.GONE
-                    rv_sitios.adapter = MainAdapter(requireContext(),result.data,this)
+        val database= this.context?.let {
+            AppDatabase.getDatabase(it)}
 
-                }
-                is Resource.Failure -> {
-                    progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(), "ocurrio un error ${result.exception}", Toast.LENGTH_SHORT).show()
-                }
+        if (database != null) {
+            database.sitios().getAll().observe(viewLifecycleOwner, Observer { result ->
 
-            }
-        })
+                rv_sitios.adapter = MainAdapter(requireContext(),result,this)
 
+            })
+        }
+
+        btn_insert_sitio.setOnClickListener {
+            findNavController().navigate(R.id.registerSitesFragment)
+        }
     }
 
     private fun setupRecyclerView(){
@@ -73,6 +72,7 @@ class LugaresFragment : Fragment(), MainAdapter.OnSitioClickListener {
         bundle.putParcelable("sitios", sitios)
         findNavController().navigate(R.id.detallesLugarFragment,bundle)
     }
+
 
 
 }
