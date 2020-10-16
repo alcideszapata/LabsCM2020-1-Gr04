@@ -12,6 +12,8 @@ data class Sitios (
     val nombre: String = "",
     val imagen: String ="",
     val descripcion: String = "",
+    val temperatura: String = "",
+    val localizacion: String = "",
     @PrimaryKey(autoGenerate = true)
     val idSitios: Int= 0
 ):Parcelable

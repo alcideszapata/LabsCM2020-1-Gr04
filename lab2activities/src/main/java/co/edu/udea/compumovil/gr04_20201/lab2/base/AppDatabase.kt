@@ -9,7 +9,7 @@ import co.edu.udea.compumovil.gr04_20201.lab2.domain.SitiosDao
 
 
 
-@Database(entities = [Sitios::class], version = 1)
+@Database(entities = [Sitios::class], version = 2)
  abstract class AppDatabase: RoomDatabase() {
 
     abstract fun sitios(): SitiosDao
@@ -31,7 +31,7 @@ import co.edu.udea.compumovil.gr04_20201.lab2.domain.SitiosDao
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
 
                 INSTANCE = instance
 

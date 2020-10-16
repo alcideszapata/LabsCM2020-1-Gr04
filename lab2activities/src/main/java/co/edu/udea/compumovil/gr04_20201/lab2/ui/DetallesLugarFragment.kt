@@ -1,5 +1,7 @@
 package co.edu.udea.compumovil.gr04_20201.lab2.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,6 +39,16 @@ class DetallesLugarFragment : Fragment() {
         Glide.with(requireContext()).load(sitios.imagen).into(img_sitio)
         txt_titulo.text = sitios.nombre
         txt_descripcion.text = sitios.descripcion
+        txt_tmperature.text = sitios.temperatura
+
+        bte_localizacion.setOnClickListener {
+            val gmmIntentUri = Uri.parse("geo:0,0?q=city+"+sitios.nombre)
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
+        }
+
+
 
     }
 
