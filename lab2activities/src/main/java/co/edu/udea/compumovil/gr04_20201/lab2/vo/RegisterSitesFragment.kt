@@ -1,5 +1,6 @@
 package co.edu.udea.compumovil.gr04_20201.lab2.vo
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,25 +44,26 @@ class RegisterSitesFragment : Fragment() {
             val imagen= img_et.text.toString()
             val descripcion= description_et.text.toString()
 
-            val sitios = Sitios(nombre, imagen, descripcion)
-            Toast.makeText(requireContext(), "Nuevo registro guardado", Toast.LENGTH_SHORT).show()
+            if (name_et.text.isEmpty()||img_et.text.isEmpty()||description_et.text.isEmpty()){
+                Toast.makeText(requireContext(), "Por favor diligencie todos los campos", Toast.LENGTH_SHORT).show()
+            }else {
+                val sitios = Sitios(nombre, imagen, descripcion)
+                Toast.makeText(requireContext(), "Nuevo registro guardado", Toast.LENGTH_SHORT)
+                    .show()
 
-            CoroutineScope(Dispatchers.IO).launch {
-                if (database != null) {
-                    database.sitios().insertAll(sitios)
-
-
-
-
-
-
-
+                CoroutineScope(Dispatchers.IO).launch {
+                    if (database != null) {
+                        database.sitios().insertAll(sitios)
+                    }
                 }
+
+                findNavController().navigate(R.id.lugaresFragment)
             }
 
-
         }
+
     }
 
 
 }
+
