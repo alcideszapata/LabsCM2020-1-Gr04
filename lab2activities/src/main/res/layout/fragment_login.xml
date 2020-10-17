@@ -31,20 +31,20 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtUser_Login"
         android:layout_width="230dp"
         android:layout_height="46dp"
         android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/txtPass_Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/txtPass_Login"
         android:layout_width="230dp"
         android:layout_height="43dp"
         android:layout_marginBottom="24dp"
@@ -58,11 +58,11 @@
 
     <ImageView
         android:id="@+id/imageViewItem"
-        android:layout_width="273dp"
-        android:layout_height="157dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        android:layout_width="383dp"
+        android:layout_height="367dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtUser_Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/agroonline" />
+        app:srcCompat="@drawable/lugares" />
 </androidx.constraintlayout.widget.ConstraintLayout>
