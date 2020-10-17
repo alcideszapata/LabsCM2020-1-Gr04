@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import co.edu.udea.compumovil.gr04_20201.lab2.ui.LugaresFragment
+import co.edu.udea.compumovil.gr04_20201.lab2.vo.RegisterUserActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -30,6 +31,13 @@ class LoginFragment : Fragment() {
 
         btningresar.setOnClickListener {
             findNavController().navigate(R.id.lugaresFragment)
+        }
+
+
+
+        btnregirtro.setOnClickListener {
+            val intent:Intent = Intent(activity, RegisterUserActivity::class.java)
+            startActivity(intent)
         }
 
     }
