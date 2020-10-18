@@ -12,6 +12,9 @@ interface UserDao {
     @Query("SELECT * FROM user_table WHERE idUser = :id")
     fun get(id: Int): LiveData<User_Entity_Activity>
 
+    @Query("SELECT * FROM user_table WHERE user = :user")
+    fun getUser(user: String): LiveData<User_Entity_Activity>
+
     @Insert
     fun insertAll(vararg user: User_Entity_Activity)
 

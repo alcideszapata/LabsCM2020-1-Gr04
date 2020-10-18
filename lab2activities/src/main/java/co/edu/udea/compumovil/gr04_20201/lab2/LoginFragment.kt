@@ -11,10 +11,14 @@ import android.widget.Button
 import android.widget.CursorAdapter
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import co.edu.udea.compumovil.gr04_20201.lab2.base.AppDatabase
 import co.edu.udea.compumovil.gr04_20201.lab2.ui.LugaresFragment
+import co.edu.udea.compumovil.gr04_20201.lab2.ui.MainAdapter
 import co.edu.udea.compumovil.gr04_20201.lab2.vo.RegisterUserActivity
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_lugares.*
 import org.intellij.lang.annotations.JdkConstants
 
 
@@ -37,6 +41,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val database= this.context?.let {
+            AppDatabase.getDatabase(it)}
+
         btningresar.findViewById<Button>(R.id.btningresar)
         btningresar.setOnClickListener {
 
@@ -49,9 +56,24 @@ class LoginFragment : Fragment() {
 
             if (userLogin.isEmpty()||userpasslog.isEmpty()){
                 Toast.makeText(requireContext(),"Por favor diligencie todos los campos",Toast.LENGTH_SHORT).show()
-            }else{
-                findNavController().navigate(R.id.lugaresFragment)
-                Toast.makeText(requireContext(),"Bienvenido(a) sr(a)" + userLogin,Toast.LENGTH_SHORT).show()
+            }else {
+                if (database != null) {
+                    database.UserDao().getUser(userLogin).observe(
+                        viewLifecycleOwner,
+                        Observer { result ->
+                            if (result != null && result.password.equals(userpasslog)) {
+                                Toast.makeText(requireContext(), "Bienvenido", Toast.LENGTH_SHORT)
+                                    .show()
+                                findNavController().navigate(R.id.lugaresFragment)
+                            } else {
+                                Toast.makeText(requireContext(), "Usuario ó Contrseña Incorrecto ", Toast.LENGTH_SHORT).show()
+                            }
+
+                        })
+                }
+
+                /*findNavController().navigate(R.id.lugaresFragment)
+                Toast.makeText(requireContext(),"Bienvenido(a) sr(a)" + userLogin,Toast.LENGTH_SHORT).show()*/
             }
 
 
