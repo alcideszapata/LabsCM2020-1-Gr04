@@ -47,6 +47,13 @@ class DetallesLugarFragment : Fragment() {
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
         }
+        val url="https://www.google.com/search?ei=6IOLX8D8HIOG5wKfoYXwDA&q=Atracciones+destacadas+en "+sitios.nombre
+        bte_sitios_recomendados.setOnClickListener {
+
+            val gmmIntentUri = Uri.parse(url);
+            val intent = Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                startActivity(intent);
+            }
 
 
 

@@ -57,8 +57,6 @@ class LoginFragment : Fragment() {
 
         }
 
-
-
         btnregirtro.setOnClickListener {
             val intent:Intent = Intent(activity, RegisterUserActivity::class.java)
             startActivity(intent)
