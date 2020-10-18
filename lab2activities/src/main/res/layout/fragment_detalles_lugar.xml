@@ -49,4 +49,12 @@
         android:padding="8dp"
         android:text="Localizacion" />
 
+    <Button
+        android:id="@+id/bte_sitios_recomendados"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Sitios de interes" />
+
 </LinearLayout>
