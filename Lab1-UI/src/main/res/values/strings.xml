@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Labs2020-1-Gr04</string>
-    <string name="textView3">Bienvenido a AgroOnline la plataforma de agro mas grande de Colombia</string>
+    <string name="textView3">Laboratorio #1 por: Leonel, Carlos y Alcides</string>
     <string name="btnIniciar">INICIAR</string>
     <string name="textView4">Escolaridad</string>
-    <string name="TextPersonName">Nombres</string>
-    <string name="TextPersonName2">Apellidos</string>
+    <string name="TextPersonName">Nombres *</string>
+    <string name="TextPersonName2">Apellidos *</string>
     <string name="textView">Sexo</string>
     <string name="textView2">Información Personal</string>
     <string name="cambiarbtn">Cambiar</string>
@@ -15,11 +15,11 @@
     <string name="autoCompleteCiudad">Ciudad</string>
     <string name="autoCompleteDir">Dirección</string>
     <string name="btnSigueContacto">Finalizar</string>
-    <string name="txtTelefono">Teléfono</string>
-    <string name="txtMail">Correo</string>
-    <string name="txtPais">País</string>
+    <string name="txtTelefono">Teléfono *</string>
+    <string name="txtMail">Correo *</string>
+    <string name="txtPais">País *</string>
     <string name="Titulo2">Información de Contacto</string>
-
+    <string name="txtinic">Digite el nombre de su empresa</string>
 
 
 

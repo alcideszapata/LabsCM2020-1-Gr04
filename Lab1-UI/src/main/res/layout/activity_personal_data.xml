@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@drawable/pd1"
     tools:context=".PersonalData">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="125dp"
         android:layout_height="34dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
         android:layout_marginTop="48dp"
+        android:drawableLeft="@drawable/graduation_solid_24"
         android:text="@string/textView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateTv" />
+        app:layout_constraintTop_toBottomOf="@+id/fecha" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtnombre"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
         android:layout_margin="20dp"
         android:layout_marginTop="20dp"
         android:drawableStart="@android:drawable/ic_menu_my_calendar"
@@ -36,32 +37,34 @@
         app:layout_constraintVertical_bias="0.178" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="match_parent"
+        android:id="@+id/txtApellido"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:drawableStart="@android:drawable/ic_menu_my_calendar"
+        android:drawableLeft="@android:drawable/ic_menu_my_calendar"
         android:ems="10"
         android:hint="@string/TextPersonName2"
         android:inputType="textCapWords|textNoSuggestions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.0"
-        android:drawableLeft="@android:drawable/ic_menu_my_calendar" />
+        app:layout_constraintTop_toBottomOf="@+id/txtnombre"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="36dp"
+        android:drawableLeft="@drawable/group_regular_24"
         android:text="@string/textView"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtApellido" />
 
     <TextView
         android:id="@+id/Titulo2"
@@ -71,25 +74,26 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/textView2"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtnombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/dateTv"
+        android:id="@+id/fecha"
         android:layout_width="228dp"
         android:layout_height="44dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:drawableStart="@android:drawable/ic_menu_month"
+        android:drawableLeft="@android:drawable/ic_menu_month"
         android:ems="10"
-        android:hint="DD/MM/AAAA"
+        android:hint="DD/MM/AAAA *"
         android:inputType="date"
         app:layout_constraintEnd_toStartOf="@+id/cambiarbtn"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
@@ -115,7 +119,7 @@
         android:layout_marginRight="268dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateTv" />
+        app:layout_constraintTop_toBottomOf="@+id/fecha" />
 
     <Button
         android:id="@+id/toContact"
@@ -135,8 +139,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="36dp"
+        android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2">
+        app:layout_constraintTop_toBottomOf="@+id/txtApellido">
 
         <RadioButton
             android:id="@+id/radioButton5"
