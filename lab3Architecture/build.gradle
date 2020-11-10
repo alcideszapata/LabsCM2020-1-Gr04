@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "co.edu.udea.compumovil.gr04_20201.lab2"
+        applicationId "co.edu.udea.compumovil.gr04_20121.Lab3Architecture"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
