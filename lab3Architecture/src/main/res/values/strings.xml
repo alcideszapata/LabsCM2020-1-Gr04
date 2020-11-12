@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lab3Architecture</string>
+    <string name="settings">Configuración</string>
 </resources>

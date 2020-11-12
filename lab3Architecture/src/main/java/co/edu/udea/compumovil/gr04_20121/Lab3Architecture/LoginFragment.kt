@@ -61,7 +61,9 @@ class LoginFragment : Fragment() {
                         viewLifecycleOwner,
                         Observer { result : User_Entity_Activity ->
                             if (result != null && result.password.equals(userpasslog)) {
-                                Toast.makeText(requireContext(), "Bienvenido", Toast.LENGTH_SHORT)
+                                saveLoginSharedPreference();
+
+                                Toast.makeText(requireContext(), "Bienvenido" + userLogin, Toast.LENGTH_SHORT)
                                     .show()
                                 findNavController().navigate(R.id.lugaresFragment)
                             } else {
@@ -82,6 +84,10 @@ class LoginFragment : Fragment() {
             val intent:Intent = Intent(activity, RegisterUserActivity::class.java)
             startActivity(intent)
         }
+
+    }
+
+    private fun saveLoginSharedPreference() {
 
     }
 
