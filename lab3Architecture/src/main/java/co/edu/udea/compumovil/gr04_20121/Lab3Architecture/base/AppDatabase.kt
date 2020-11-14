@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import carlose.morales.udea.roomsqlite.Interface.UserDao
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.domain.SitiosDao
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Sitios
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Activity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 
 @Database(entities = [Sitios::class, User_Entity_Activity::class], version = 3)
@@ -21,7 +24,7 @@ import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Acti
 
         private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase {
+        fun getDatabase(context: Context,scope: CoroutineScope): AppDatabase {
             val tempInstance=
                 INSTANCE
 
@@ -34,7 +37,7 @@ import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Acti
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).fallbackToDestructiveMigration().build()
+                ).addCallback(PostDatabaseCallback(scope)).fallbackToDestructiveMigration().build()
 
                 INSTANCE = instance
 
@@ -43,5 +46,26 @@ import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Acti
 
         }
     }
+    private class PostDatabaseCallback(
+        private val scope: CoroutineScope
+    ) : RoomDatabase.Callback() {
 
+        override fun onOpen(db: SupportSQLiteDatabase) {
+            super.onOpen(db)
+            INSTANCE?.let { database ->
+                scope.launch {
+                    populateDatabase(database.sitios())
+                }
+            }
+        }
+
+        suspend fun populateDatabase(postDao: SitiosDao) {
+            // Delete all content here.
+//            postDao.deleteAll()
+//
+//            // Add sample post.
+//            val post = PostEntity(id = 1, title = "Hello", body = "body")
+//            postDao.insert(post)
+        }
+    }
 }

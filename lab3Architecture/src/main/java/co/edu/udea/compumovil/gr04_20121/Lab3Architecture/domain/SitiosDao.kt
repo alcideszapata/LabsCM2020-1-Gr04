@@ -1,10 +1,7 @@
 package co.edu.udea.compumovil.gr04_20121.Lab3Architecture.domain
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Sitios
 
 
@@ -19,8 +16,16 @@ interface SitiosDao {
     @Insert
     fun insertAll(vararg sitios: Sitios)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(post: Sitios)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPosts(posts: List<Sitios>)
+
+    @Query("DELETE FROM sitios")
+    suspend fun deleteAll()
+
     @Update
     fun update(sitios: Sitios)
-
 
 }
