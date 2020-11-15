@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.R
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Activity
@@ -20,7 +21,7 @@ class RegisterUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_user)
 
-        val dataBaseUserPOI = AppDatabase.getDatabase(this)
+        val dataBaseUserPOI = AppDatabase.getDatabase(this,this.lifecycleScope)
 
         btn_save_Register.setOnClickListener {
             val user = txtuser_Register.text.toString()
@@ -41,7 +42,7 @@ class RegisterUserActivity : AppCompatActivity() {
 
         var userList = emptyList<User_Entity_Activity>()
 
-        val database = AppDatabase.getDatabase(this)
+        val database = AppDatabase.getDatabase(this,this.lifecycleScope)
 
         database.UserDao().getAll().observe(this, Observer {
             userList = it

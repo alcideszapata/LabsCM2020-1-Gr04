@@ -2,11 +2,8 @@ package co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -41,13 +38,13 @@ class LugaresFragment : Fragment(),MainAdapter.OnSitioClickListener {
         viewModel.allPosts.observe(viewLifecycleOwner, Observer {
             postAdapter.updatePostList(it)
         })
-        viewModel.requestPosts()
+        //viewModel.requestPosts()
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_lugares, container, false)
     }
 
@@ -68,14 +65,25 @@ class LugaresFragment : Fragment(),MainAdapter.OnSitioClickListener {
         postAdapter = MainAdapter(this as MainAdapter.OnSitioClickListener)
         rv_sitios.adapter = postAdapter
 
-
     }
-
-    override fun OnSitioClick(sitios: Sitios) {
+        override fun OnSitioClick(sitios: Sitios) {
         val bundle = Bundle()
         bundle.putParcelable("sitios", sitios)
         findNavController().navigate(R.id.detallesLugarFragment,bundle)
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_post_list, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_refresh -> {
+                Log.d("LugaresFragment", "Action refresh")
+                viewModel.requestPosts()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
 }

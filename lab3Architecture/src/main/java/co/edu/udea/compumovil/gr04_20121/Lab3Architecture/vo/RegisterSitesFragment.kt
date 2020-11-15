@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.R
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase
@@ -39,7 +40,7 @@ RegisterSitesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val database = this.context?.let { AppDatabase.getDatabase(it) }
+        val database = this.context?.let { AppDatabase.getDatabase(it,this.viewLifecycleOwner.lifecycleScope) }
         btn_save.setOnClickListener {
             val nombre= name_et.text.toString()
             val imagen= img_et.text.toString()

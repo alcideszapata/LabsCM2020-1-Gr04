@@ -12,6 +12,7 @@ import android.widget.CursorAdapter
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Activity
@@ -41,7 +42,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val database= this.context?.let {
-            AppDatabase.getDatabase(it)}
+            AppDatabase.getDatabase(it,this.viewLifecycleOwner.lifecycleScope)}
 
         btningresar.findViewById<Button>(R.id.btningresar)
         btningresar.setOnClickListener {
