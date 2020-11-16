@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Lugares">
+
+        <Preference
+            android:id="@+id/Sign_off"
+            android:title="Cerrar sesion">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data=" " />
+        </Preference>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Configuraciones">
+
+        <CheckBoxPreference
+            android:key="checkbox"
+            android:summary="Selecciona si deseas activar "
+            android:title="Activar notificaciones" />
+
+        <CheckBoxPreference
+            android:key="checkbox"
+            android:summary="Selecciona si deseas activar "
+            android:title="Silenciar notificaciones" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
