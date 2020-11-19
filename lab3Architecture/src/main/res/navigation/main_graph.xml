@@ -6,22 +6,22 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/lugaresFragment"
-        android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui.LugaresFragment"
+        android:id="@+id/placesFragment"
+        android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui.PlacesFragment"
         android:label="lugares"
-        tools:layout="@layout/fragment_lugares">
+        tools:layout="@layout/fragment_places">
         <action
             android:id="@+id/action_lugaresFragment_to_detallesLugarFragment"
-            app:destination="@id/detallesLugarFragment" />
+            app:destination="@id/detailsPlaceFragment" />
         <action
             android:id="@+id/action_lugaresFragment_to_registerSitesFragment"
-            app:destination="@id/registerSitesFragment" />
+            app:destination="@id/registerPlacesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detallesLugarFragment"
-        android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui.DetallesLugarFragment"
+        android:id="@+id/detailsPlaceFragment"
+        android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui.DetailsPlaceFragment"
         android:label="DETALLE LUGARES"
-        tools:layout="@layout/fragment_detalles_lugar" />
+        tools:layout="@layout/fragment_details_place" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.LoginFragment"
@@ -29,11 +29,11 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_lugaresFragment"
-            app:destination="@id/lugaresFragment" />
+            app:destination="@id/placesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/registerSitesFragment"
-        android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.vo.RegisterSitesFragment"
+        android:id="@+id/registerPlacesFragment"
+        android:name="co.edu.udea.compumovil.gr04_20121.Lab3Architecture.valueObjet.RegisterPlacesFragment"
         android:label="RegisterSitesFragment"
-        tools:layout="@layout/fragment_register_sites"/>
+        tools:layout="@layout/fragment_register_places"/>
 </navigation>
