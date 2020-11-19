@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import java.lang.System.exit
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,10 +18,8 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         navController = findNavController(R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -30,27 +27,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu,menu)
+        menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        if (id==R.id.item_preference){
+        if (id == R.id.item_preference) {
             goToppreferences()
-        }else if (id==R.id.item_salir){
+        } else if (id == R.id.item_salir) {
             finish()
         }
-
         return super.onOptionsItemSelected(item)
     }
 
-    private fun goToppreferences(){
-
-        startActivity(Intent(this, Preference_Fragmeng::class.java))
+    private fun goToppreferences() {
+        startActivity(Intent(this, PreferenceFragment::class.java))
     }
-
-
-
-
 }

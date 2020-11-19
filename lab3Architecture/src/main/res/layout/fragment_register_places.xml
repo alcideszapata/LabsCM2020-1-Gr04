@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vo.RegisterSitesFragment">
+    tools:context=".valueObjet.RegisterPlacesFragment">
 
 
     <EditText
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_et" />
 
     <EditText
-        android:id="@+id/temperatura_et"
+        android:id="@+id/temperature_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -86,5 +86,5 @@
         android:layout_marginRight="36dp"
         android:text="SAVE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperatura_et" />
+        app:layout_constraintTop_toBottomOf="@+id/temperature_et" />
 </androidx.constraintlayout.widget.ConstraintLayout>

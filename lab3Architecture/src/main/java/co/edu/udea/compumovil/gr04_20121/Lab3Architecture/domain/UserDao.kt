@@ -2,26 +2,25 @@ package carlose.morales.udea.roomsqlite.Interface
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Activity
+import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.UserEntity
 
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user_table")
-    fun getAll(): LiveData<List<User_Entity_Activity>>
+    fun getAll(): LiveData<List<UserEntity>>
 
     @Query("SELECT * FROM user_table WHERE idUser = :id")
-    fun get(id: Int): LiveData<User_Entity_Activity>
+    fun get(id: Int): LiveData<UserEntity>
 
     @Query("SELECT * FROM user_table WHERE user = :user")
-    fun getUser(user: String): LiveData<User_Entity_Activity>
+    fun getUser(user: String): LiveData<UserEntity>
 
     @Insert
-    fun insertAll(vararg user: User_Entity_Activity)
+    fun insertAll(vararg user: UserEntity)
 
     @Update
-    fun update(user: User_Entity_Activity)
+    fun update(user: UserEntity)
 
     @Delete
-    fun delete(user: User_Entity_Activity)
-
+    fun delete(user: UserEntity)
 }

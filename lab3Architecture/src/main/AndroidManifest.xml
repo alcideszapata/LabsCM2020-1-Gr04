@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.edu.udea.compumovil.gr04_20121.Lab3Architecture">
+<!--permisos de internet...-->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,11 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Preference_Fragmeng"></activity>
-        <activity android:name=".model.post_Entity" />
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".vo.RegisterUserActivity" />
+        <activity android:name=".PreferenceFragment"></activity>
+        <activity android:name=".valueObjet.RegisterUserActivity" />
         <activity android:name=".MainActivity">
+        <activity android:name=".Preference_Fragment"></activity>
+        <activity android:name=".vo.RegisterUserActivity" />
+        <activity android:name=".MainActivity"
+                  android:theme="@style/SplashTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
