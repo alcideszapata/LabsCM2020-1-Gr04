@@ -1,5 +1,4 @@
-package co.edu.udea.compumovil.gr04_20121.Lab3Architecture.vo
-
+package co.edu.udea.compumovil.gr04_20121.Lab3Architecture.valueObjet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,62 +10,59 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.R
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase
-import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Sitios
-import kotlinx.android.synthetic.main.fragment_register_sites.*
+import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Places
+import kotlinx.android.synthetic.main.fragment_register_places.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class
-RegisterSitesFragment : Fragment() {
+RegisterPlacesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-
-
-
-        return inflater.inflate(R.layout.fragment_register_sites, container, false)
+        return inflater.inflate(R.layout.fragment_register_places, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val database = this.context?.let { AppDatabase.getDatabase(it,this.viewLifecycleOwner.lifecycleScope) }
+        val database = this.context?.let {
+            AppDatabase.getDatabase(
+                it,
+                this.viewLifecycleOwner.lifecycleScope
+            )
+        }
         btn_save.setOnClickListener {
-            val nombre= name_et.text.toString()
-            val imagen= img_et.text.toString()
-            val descripcion= description_et.text.toString()
-            val temperatura= temperatura_et.text.toString()
+            val name = name_et.text.toString()
+            val image = img_et.text.toString()
+            val description = description_et.text.toString()
+            val temperature = temperature_et.text.toString()
 
-            if (name_et.text.isEmpty()||img_et.text.isEmpty()||description_et.text.isEmpty()){
-                Toast.makeText(requireContext(), "Por favor diligencie todos los campos", Toast.LENGTH_SHORT).show()
-            }else {
-                val sitios = Sitios(nombre, imagen, descripcion,temperatura)
+            if (name_et.text.isEmpty() || img_et.text.isEmpty() || description_et.text.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Por favor diligencie todos los campos",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val sitios = Places(name, image, description, temperature)
                 Toast.makeText(requireContext(), "Nuevo registro guardado", Toast.LENGTH_SHORT)
                     .show()
 
                 CoroutineScope(Dispatchers.IO).launch {
                     if (database != null) {
-                        database.sitios().insertAll(sitios)
+                        database.places().insertAll(sitios)
                     }
                 }
-
-                findNavController().navigate(R.id.lugaresFragment)
+                findNavController().navigate(R.id.placesFragment)
             }
-
         }
-
     }
-
-
 }
 

@@ -1,12 +1,12 @@
 package co.edu.udea.compumovil.gr04_20121.Lab3Architecture.domain
 
-import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Sitios
-import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.vo.Resource
+import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Places
+import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.valueObjet.Resource
 
 
 interface Repo {
 
-    fun getSitiosList(): Resource<List<Sitios>>
+    fun getPlacesList(): Resource<List<Places>>
 
 
 

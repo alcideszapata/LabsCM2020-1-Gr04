@@ -18,17 +18,16 @@ data class PostResponse(
 
     @SerializedName("temperature")
      val temperature: String
-
 )
 
-fun List<PostResponse>.asCacheModel(): List<Sitios> {
+fun List<PostResponse>.asCacheModel(): List<Places> {
     return map {
-        Sitios(
-            idSitios = it.id,
-            nombre = it.title,
-            imagen = it.image,
-            descripcion = it.description,
-            temperatura = it.temperature
+        Places(
+            idPlaces = it.id,
+            name = it.title,
+            image = it.image,
+            description = it.description,
+            temperature = it.temperature
         )
     }
 }

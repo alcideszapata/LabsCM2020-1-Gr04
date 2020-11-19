@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.LugaresFragment">
+    tools:context=".ui.PlacesFragment">
 
 
     <TextView
-        android:id="@+id/txt_tmperature"
+        android:id="@+id/txt_temperature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -18,14 +18,14 @@
 
 
     <ImageView
-        android:id="@+id/img_sitio"
+        android:id="@+id/img_place"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="8dp"
         android:src="@mipmap/ic_launcher"/>
 
     <TextView
-        android:id="@+id/txt_titulo"
+        android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -35,14 +35,14 @@
         tools:text="Medellin" />
 
     <TextView
-        android:id="@+id/txt_descripcion"
+        android:id="@+id/txt_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
         tools:text="Ciudad de la eterna primavera"/>
 
     <Button
-        android:id="@+id/bte_localizacion"
+        android:id="@+id/bte_localization"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         android:text="Localizacion" />
 
     <Button
-        android:id="@+id/bte_sitios_recomendados"
+        android:id="@+id/bte_places_recommended"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

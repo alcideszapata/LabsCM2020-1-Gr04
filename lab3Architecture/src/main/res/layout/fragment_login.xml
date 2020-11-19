@@ -7,19 +7,19 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btningresar"
+        android:id="@+id/btnLog"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
         android:background="@drawable/btn_rounded"
         android:text="Ingresar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnregirtro"
+        app:layout_constraintEnd_toStartOf="@+id/btnregirter"
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnregirtro"
+        android:id="@+id/btnregirter"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
@@ -51,7 +51,7 @@
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnregirtro"
+        app:layout_constraintBottom_toTopOf="@+id/btnregirter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent" />
