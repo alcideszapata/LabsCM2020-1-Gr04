@@ -5,27 +5,25 @@ import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 
-class Preference_Fragment : AppCompatActivity(),
-PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+class PreferenceFragment : AppCompatActivity(),
+    PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferent_fragment)
-        if (savedInstanceState==null) {
+        if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.content_preference, MainPreference())
                 .commit()
-
-        }else{
+        } else {
             title = savedInstanceState.getCharSequence(TAG_TITTLE)
         }
         supportFragmentManager.addOnBackStackChangedListener {
-            if (supportFragmentManager.backStackEntryCount==0){
+            if (supportFragmentManager.backStackEntryCount == 0) {
                 setTitle(R.string.settings)
             }
         }
-
         setUpToolbar()
 
     }
@@ -34,10 +32,9 @@ PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
         supportActionBar?.setTitle(R.string.settings)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-
     }
 
-    class MainPreference : PreferenceFragmentCompat(){
+    class MainPreference : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.rootpreference, rootKey)
         }
@@ -50,8 +47,7 @@ PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
         return true
     }
 
-    companion object{
-        private val TAG_TITTLE = Preference_Fragment::getTitle.toString()
+    companion object {
+        private val TAG_TITTLE = PreferenceFragment::getTitle.toString()
     }
-
 }

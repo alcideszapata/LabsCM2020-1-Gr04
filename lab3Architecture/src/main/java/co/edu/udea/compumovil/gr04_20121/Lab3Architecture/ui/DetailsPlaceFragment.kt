@@ -8,55 +8,46 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.R
-import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Sitios
+import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.Places
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.fragment_detalles_lugar.*
+import kotlinx.android.synthetic.main.fragment_details_place.*
 
-
-class DetallesLugarFragment : Fragment() {
-
-    private lateinit var sitios: Sitios
+class DetailsPlaceFragment : Fragment() {
+    private lateinit var places: Places
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireArguments().let {
-            sitios = it.getParcelable("sitios")!!
-
+            places = it.getParcelable("placesTable")!!
         }
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_detalles_lugar, container, false)
+        return inflater.inflate(R.layout.fragment_details_place, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Glide.with(requireContext()).load(sitios.imagen).into(img_sitio)
-        txt_titulo.text = sitios.nombre
-        txt_descripcion.text = sitios.descripcion
-        txt_tmperature.text = sitios.temperatura
+        Glide.with(requireContext()).load(places.image).into(img_place)
+        txt_title.text = places.name
+        txt_description.text = places.description
+        txt_temperature.text = places.temperature
 
-        bte_localizacion.setOnClickListener {
-            val gmmIntentUri = Uri.parse("geo:0,0?q=city+"+sitios.nombre)
+        bte_localization.setOnClickListener {
+            val gmmIntentUri = Uri.parse("geo:0,0?q=city+" + places.name)
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
         }
-        val url="https://www.google.com/search?ei=6IOLX8D8HIOG5wKfoYXwDA&q=Atracciones+destacadas+en "+sitios.nombre
-        bte_sitios_recomendados.setOnClickListener {
-
+        val url =
+            "https://www.google.com/search?ei=6IOLX8D8HIOG5wKfoYXwDA&q=Atracciones+destacadas+en " + places.name
+        bte_places_recommended.setOnClickListener {
             val gmmIntentUri = Uri.parse(url);
             val intent = Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                startActivity(intent);
-            }
-
-
-
+            startActivity(intent);
+        }
     }
-
 }
