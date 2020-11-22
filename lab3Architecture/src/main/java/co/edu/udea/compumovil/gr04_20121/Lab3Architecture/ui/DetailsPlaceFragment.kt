@@ -45,9 +45,9 @@ class DetailsPlaceFragment : Fragment() {
         val url =
             "https://www.google.com/search?ei=6IOLX8D8HIOG5wKfoYXwDA&q=Atracciones+destacadas+en " + places.name
         bte_places_recommended.setOnClickListener {
-            val gmmIntentUri = Uri.parse(url);
-            val intent = Intent(Intent.ACTION_VIEW, gmmIntentUri);
-            startActivity(intent);
+            val gmmIntentUri = Uri.parse(url)
+            val intent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            startActivity(intent)
         }
     }
 }
