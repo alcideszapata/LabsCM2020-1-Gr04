@@ -19,7 +19,7 @@
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/progressBar"
         android:layout_toRightOf="@+id/progressBar"
-        android:text="Hola, "
+        android:text="Hola,"
         android:visibility="invisible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
