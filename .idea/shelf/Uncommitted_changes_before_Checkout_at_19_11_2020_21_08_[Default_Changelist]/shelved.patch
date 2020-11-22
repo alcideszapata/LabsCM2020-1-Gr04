@@ -1,0 +1,113 @@
+Index: lab3Architecture/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"co.edu.udea.compumovil.gr04_20121.Lab3Architecture\">\r\n<!--permisos de internet...-->\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity android:name=\".PreferenceFragment\"></activity>\r\n        <activity android:name=\".valueObjet.RegisterUserActivity\" />\r\n        <activity android:name=\".MainActivity\">\r\n        <activity android:name=\".Preference_Fragment\"></activity>\r\n        <activity android:name=\".vo.RegisterUserActivity\" />\r\n        <activity android:name=\".MainActivity\"\r\n                  android:theme=\"@style/SplashTheme\">\r\n\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lab3Architecture/src/main/AndroidManifest.xml	(revision c079cb7c4e0e29e999f5fb7e589a450518b222c3)
++++ lab3Architecture/src/main/AndroidManifest.xml	(date 1605836308283)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
+     package="co.edu.udea.compumovil.gr04_20121.Lab3Architecture">
+ <!--permisos de internet...-->
+     <uses-permission android:name="android.permission.INTERNET" />
+@@ -11,17 +12,12 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+-        <activity android:name=".PreferenceFragment"></activity>
++               <activity android:name=".PreferenceFragment"></activity>
+         <activity android:name=".valueObjet.RegisterUserActivity" />
+-        <activity android:name=".MainActivity">
+-        <activity android:name=".Preference_Fragment"></activity>
+-        <activity android:name=".vo.RegisterUserActivity" />
+         <activity android:name=".MainActivity"
+-                  android:theme="@style/SplashTheme">
+-
++            android:theme="@style/SplashTheme">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+-
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+Index: lab3Architecture/src/main/java/co/edu/udea/compumovil/gr04_20121/Lab3Architecture/LoginFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package co.edu.udea.compumovil.gr04_20121.Lab3Architecture\r\n\r\nimport android.content.Intent\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.Button\r\nimport android.widget.EditText\r\nimport android.widget.Toast\r\nimport androidx.lifecycle.Observer\r\nimport androidx.lifecycle.lifecycleScope\r\nimport androidx.navigation.fragment.findNavController\r\nimport co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase\r\nimport co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.UserEntity\r\nimport co.edu.udea.compumovil.gr04_20121.Lab3Architecture.valueObjet.RegisterUserActivity\r\nimport kotlinx.android.synthetic.main.fragment_login.*\r\n\r\nclass LoginFragment : Fragment() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n    }\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater, container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        return inflater.inflate(R.layout.fragment_login, container, false)\r\n    }\r\n\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        super.onViewCreated(view, savedInstanceState)\r\n\r\n        val database = this.context?.let {\r\n            AppDatabase.getDatabase(it, this.viewLifecycleOwner.lifecycleScope)\r\n        }\r\n\r\n        btnLog.findViewById<Button>(R.id.btnLog)\r\n        btnLog.setOnClickListener {\r\n            val userLogin = txtUser_Login.text.toString()\r\n            val userpasslog = txtPass_Login.text.toString()\r\n            txtUser_Login.findViewById<EditText>(R.id.txtUser_Login)\r\n            txtPass_Login.findViewById<EditText>(R.id.txtPass_Login)\r\n\r\n            if (userLogin.isEmpty() || userpasslog.isEmpty()) {\r\n                Toast.makeText(\r\n                    requireContext(),\r\n                    \"Por favor diligencie todos los campos\",\r\n                    Toast.LENGTH_SHORT\r\n                ).show()\r\n            } else {\r\n               // if (database != null) {\r\n                database?.let {\r\n                    it.UserDao().getUser(userLogin).observe(\r\n                        viewLifecycleOwner,\r\n                        Observer { result: UserEntity ->\r\n                            if (result != null && result.password.equals(userpasslog)) {\r\n                                Toast.makeText(requireContext(), \"Bienvenido\", Toast.LENGTH_SHORT)\r\n                                    .show()\r\n                                findNavController().navigate(R.id.placesFragment)\r\n                            } else {\r\n                                Toast.makeText(\r\n                                    requireContext(),\r\n                                    \"Usuario ó Contrseña Incorrecto \",\r\n                                    Toast.LENGTH_SHORT\r\n                                ).show()\r\n                            }\r\n                        })\r\n                }\r\n            }\r\n        }\r\n\r\n        btnregirter.setOnClickListener {\r\n            val intent: Intent = Intent(activity, RegisterUserActivity::class.java)\r\n            startActivity(intent)\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lab3Architecture/src/main/java/co/edu/udea/compumovil/gr04_20121/Lab3Architecture/LoginFragment.kt	(revision c079cb7c4e0e29e999f5fb7e589a450518b222c3)
++++ lab3Architecture/src/main/java/co/edu/udea/compumovil/gr04_20121/Lab3Architecture/LoginFragment.kt	(date 1605838105193)
+@@ -18,7 +18,7 @@
+ import kotlinx.android.synthetic.main.fragment_login.*
+ 
+ class LoginFragment : Fragment() {
+-
++    
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+     }
+Index: lab3Architecture/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Lab3Architecture</string>\r\n    <string name=\"menu_item_refresh\">Refresh</string>\r\n    <string name=\"settings\">Configuraciones</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lab3Architecture/src/main/res/values/strings.xml	(revision c079cb7c4e0e29e999f5fb7e589a450518b222c3)
++++ lab3Architecture/src/main/res/values/strings.xml	(date 1605834716055)
+@@ -2,4 +2,5 @@
+     <string name="app_name">Lab3Architecture</string>
+     <string name="menu_item_refresh">Refresh</string>
+     <string name="settings">Configuraciones</string>
++    <string name="Login">Login</string>
+ </resources>
+\ No newline at end of file
+Index: lab3Architecture/src/main/res/layout/fragment_places.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:gravity=\"center\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".ui.PlacesFragment\">\r\n\r\n    <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n        android:id=\"@+id/btn_insert_place\"\r\n        android:src=\"@drawable/ic_baseline_add_24\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_gravity=\"end\"/>\r\n\r\n    <RelativeLayout\r\n        android:id=\"@+id/progressBar\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:visibility=\"gone\">\r\n\r\n        <ProgressBar\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_centerInParent=\"true\"/>\r\n    </RelativeLayout>\r\n\r\n\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:id=\"@+id/rv_places\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n\r\n        />\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lab3Architecture/src/main/res/layout/fragment_places.xml	(revision c079cb7c4e0e29e999f5fb7e589a450518b222c3)
++++ lab3Architecture/src/main/res/layout/fragment_places.xml	(date 1605833821274)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+@@ -9,10 +9,16 @@
+ 
+     <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:id="@+id/btn_insert_place"
+-        android:src="@drawable/ic_baseline_add_24"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_gravity="end"/>
++        android:layout_alignParentEnd="true"
++        android:layout_alignParentRight="true"
++        android:layout_alignParentBottom="true"
++        android:layout_gravity="end"
++        android:layout_marginEnd="27dp"
++        android:layout_marginRight="27dp"
++        android:layout_marginBottom="25dp"
++        android:src="@drawable/ic_baseline_add_24" />
+ 
+     <RelativeLayout
+         android:id="@+id/progressBar"
+@@ -33,4 +39,4 @@
+         android:layout_height="match_parent"
+ 
+         />
+-</LinearLayout>
+\ No newline at end of file
++</RelativeLayout>
+\ No newline at end of file

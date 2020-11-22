@@ -1,0 +1,97 @@
+Index: lab3Architecture/src/main/java/co/edu/udea/compumovil/gr04_20121/Lab3Architecture/LoginFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package co.edu.udea.compumovil.gr04_20121.Lab3Architecture\r\n\r\nimport android.content.Intent\r\nimport android.database.Cursor\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.Button\r\nimport android.widget.CursorAdapter\r\nimport android.widget.EditText\r\nimport android.widget.Toast\r\nimport androidx.lifecycle.Observer\r\nimport androidx.navigation.fragment.findNavController\r\nimport co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase\r\nimport co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Activity\r\nimport co.edu.udea.compumovil.gr04_20121.Lab3Architecture.vo.RegisterUserActivity\r\nimport kotlinx.android.synthetic.main.fragment_login.*\r\nimport kotlinx.android.synthetic.main.fragment_lugares.*\r\nimport org.intellij.lang.annotations.JdkConstants\r\n\r\n\r\nclass LoginFragment : Fragment() {\r\n\r\n   override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n\r\n\r\n    }\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater, container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        // Inflate the layout for this fragment\r\n        return inflater.inflate(R.layout.fragment_login, container, false)\r\n    }\r\n\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        super.onViewCreated(view, savedInstanceState)\r\n\r\n        val database= this.context?.let {\r\n            AppDatabase.getDatabase(it)}\r\n\r\n        btningresar.findViewById<Button>(R.id.btningresar)\r\n        btningresar.setOnClickListener {\r\n\r\n            val userLogin = txtUser_Login.text.toString()\r\n            val userpasslog = txtPass_Login.text.toString()\r\n\r\n            txtUser_Login.findViewById<EditText>(R.id.txtUser_Login)\r\n            txtPass_Login.findViewById<EditText>(R.id.txtPass_Login)\r\n\r\n\r\n            if (userLogin.isEmpty()||userpasslog.isEmpty()){\r\n                Toast.makeText(requireContext(),\"Por favor diligencie todos los campos\",Toast.LENGTH_SHORT).show()\r\n            }else {\r\n                if (database != null) {\r\n                    database.UserDao().getUser(userLogin).observe(\r\n                        viewLifecycleOwner,\r\n                        Observer { result : User_Entity_Activity ->\r\n                            if (result != null && result.password.equals(userpasslog)) {\r\n                                saveLoginSharedPreference();\r\n\r\n                                Toast.makeText(requireContext(), \"Bienvenido\" + userLogin, Toast.LENGTH_SHORT)\r\n                                    .show()\r\n                                findNavController().navigate(R.id.lugaresFragment)\r\n                            } else {\r\n                                Toast.makeText(requireContext(), \"Usuario ó Contrseña Incorrecto \", Toast.LENGTH_SHORT).show()\r\n                            }\r\n\r\n                        })\r\n                }\r\n\r\n                /*findNavController().navigate(R.id.lugaresFragment)\r\n                Toast.makeText(requireContext(),\"Bienvenido(a) sr(a)\" + userLogin,Toast.LENGTH_SHORT).show()*/\r\n            }\r\n\r\n\r\n        }\r\n\r\n        btnregirtro.setOnClickListener {\r\n            val intent:Intent = Intent(activity, RegisterUserActivity::class.java)\r\n            startActivity(intent)\r\n        }\r\n\r\n    }\r\n\r\n    private fun saveLoginSharedPreference() {\r\n\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lab3Architecture/src/main/java/co/edu/udea/compumovil/gr04_20121/Lab3Architecture/LoginFragment.kt	(revision c90980f110d8baacbfc7d720a488b7c96d78ba97)
++++ lab3Architecture/src/main/java/co/edu/udea/compumovil/gr04_20121/Lab3Architecture/LoginFragment.kt	(date 1605330716813)
+@@ -1,5 +1,6 @@
+ package co.edu.udea.compumovil.gr04_20121.Lab3Architecture
+ 
++import android.content.Context
+ import android.content.Intent
+ import android.database.Cursor
+ import android.os.Bundle
+@@ -15,6 +16,7 @@
+ import androidx.navigation.fragment.findNavController
+ import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.base.AppDatabase
+ import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.model.User_Entity_Activity
++import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui.LugaresFragment
+ import co.edu.udea.compumovil.gr04_20121.Lab3Architecture.vo.RegisterUserActivity
+ import kotlinx.android.synthetic.main.fragment_login.*
+ import kotlinx.android.synthetic.main.fragment_lugares.*
+@@ -26,7 +28,6 @@
+    override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+ 
+-
+     }
+ 
+     override fun onCreateView(
+@@ -60,12 +61,23 @@
+                     database.UserDao().getUser(userLogin).observe(
+                         viewLifecycleOwner,
+                         Observer { result : User_Entity_Activity ->
++
++//
++//                            val sharedPreferences =
++//                                activity?.getSharedPreferences(getString(R.string.shared_preferences_nm), Context.MODE_PRIVATE)
++//                            val usuario_logueado = sharedPreferences?.getBoolean(getString(R.string.usuario_logueado), )
++
++
++
+                             if (result != null && result.password.equals(userpasslog)) {
+-                                saveLoginSharedPreference();
++
++                                    if (usuario_logueado){
+ 
+-                                Toast.makeText(requireContext(), "Bienvenido" + userLogin, Toast.LENGTH_SHORT)
+-                                    .show()
+-                                findNavController().navigate(R.id.lugaresFragment)
++                                        Toast.makeText(requireContext(), "Bienvenido " + userLogin, Toast.LENGTH_SHORT)
++                                            .show()
++                                        findNavController().navigate(R.id.lugaresFragment)
++                                    }
++
+                             } else {
+                                 Toast.makeText(requireContext(), "Usuario ó Contrseña Incorrecto ", Toast.LENGTH_SHORT).show()
+                             }
+@@ -73,8 +85,6 @@
+                         })
+                 }
+ 
+-                /*findNavController().navigate(R.id.lugaresFragment)
+-                Toast.makeText(requireContext(),"Bienvenido(a) sr(a)" + userLogin,Toast.LENGTH_SHORT).show()*/
+             }
+ 
+ 
+@@ -87,8 +97,7 @@
+ 
+     }
+ 
+-    private fun saveLoginSharedPreference() {
+ 
+-    }
++
+ 
+ }
+\ No newline at end of file
+Index: lab3Architecture/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Lab3Architecture</string>\r\n    <string name=\"settings\">Configuración</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lab3Architecture/src/main/res/values/strings.xml	(revision c90980f110d8baacbfc7d720a488b7c96d78ba97)
++++ lab3Architecture/src/main/res/values/strings.xml	(date 1605159452402)
+@@ -1,4 +1,6 @@
+ <resources>
+     <string name="app_name">Lab3Architecture</string>
+     <string name="settings">Configuración</string>
++    <string name="shared_preferences_nm">mispreferencias</string>
++    <string name="usuario_logueado">Usuario Logueado</string>
+ </resources>
+\ No newline at end of file
