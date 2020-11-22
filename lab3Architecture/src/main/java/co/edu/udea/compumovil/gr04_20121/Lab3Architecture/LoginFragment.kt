@@ -1,6 +1,8 @@
 package co.edu.udea.compumovil.gr04_20121.Lab3Architecture
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,8 +21,20 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
 
+    lateinit var sharedPreferences: SharedPreferences
+    var isRemembered = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedPreferences = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
+
+        if (isRemembered) {
+
+            findNavController().navigate(R.id.placesFragment)
+
+        }
     }
 
     override fun onCreateView(
@@ -44,6 +58,8 @@ class LoginFragment : Fragment() {
             txtUser_Login.findViewById<EditText>(R.id.txtUser_Login)
             txtPass_Login.findViewById<EditText>(R.id.txtPass_Login)
 
+            val checked: Boolean = checkbox1.isChecked
+
             if (userLogin.isEmpty() || userpasslog.isEmpty()) {
                 Toast.makeText(
                     requireContext(),
@@ -51,14 +67,22 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-               // if (database != null) {
                 database?.let {
                     it.UserDao().getUser(userLogin).observe(
                         viewLifecycleOwner,
                         Observer { result: UserEntity ->
                             if (result != null && result.password.equals(userpasslog)) {
-                                Toast.makeText(requireContext(), "Bienvenido", Toast.LENGTH_SHORT)
+                                Toast.makeText(requireContext(), "Bienvenido " + userLogin, Toast.LENGTH_SHORT)
                                     .show()
+                                val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                                editor.putString("NAME", userLogin)
+                                editor.putBoolean("CHECKBOX", checked)
+                                editor.apply()
+
+                                Toast.makeText(requireContext(), "Saved", Toast.LENGTH_LONG).show()
+
+
+
                                 findNavController().navigate(R.id.placesFragment)
                             } else {
                                 Toast.makeText(
@@ -77,4 +101,8 @@ class LoginFragment : Fragment() {
             startActivity(intent)
         }
     }
+
+
+
+
 }

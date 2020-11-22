@@ -1,5 +1,7 @@
 package co.edu.udea.compumovil.gr04_20121.Lab3Architecture.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -19,10 +21,6 @@ class PlacesFragment : Fragment(), MainAdapter.OnPlaceClickListener {
     private lateinit var viewModel: PostViewModel
     private lateinit var postAdapter: MainAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PostViewModel::class.java)
@@ -35,6 +33,9 @@ class PlacesFragment : Fragment(), MainAdapter.OnPlaceClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_places, container, false)
     }

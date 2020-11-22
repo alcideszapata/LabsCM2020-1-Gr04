@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="co.edu.udea.compumovil.gr04_20121.Lab3Architecture">
 <!--permisos de internet...-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,15 +14,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PreferenceFragment"></activity>
         <activity android:name=".valueObjet.RegisterUserActivity" />
-        <activity android:name=".MainActivity">
-        <activity android:name=".Preference_Fragment"></activity>
-        <activity android:name=".vo.RegisterUserActivity" />
         <activity android:name=".MainActivity"
-                  android:theme="@style/SplashTheme">
-
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
