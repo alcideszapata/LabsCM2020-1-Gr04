@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitFactory {
 
+    //--
     private const val BASE_URL = "https://my-json-server.typicode.com/leonel1221/Lab3bd/"
 
     private val gson: Gson = GsonBuilder()
