@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="co.edu.udea.compumovil.gr04_20121.Lab3Architecture">
-<!--permisos de internet...-->
+    <!--permisos de internet...-->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PreferenceFragment"></activity>
         <activity android:name=".valueObjet.RegisterUserActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
             android:theme="@style/SplashTheme">
 
             <intent-filter>
